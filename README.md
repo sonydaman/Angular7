@@ -16,21 +16,28 @@ git add . && git commit -a -m "Add your message" && git push origin master
 ## Angular7
 
 ## For Starting project in angular 7 we need to follows these step 
-## 1.) npm install -g @angular/cli
-## 2.) ng new ng7-pre
-## 3.) a.) ? Would you like to add Angular routing? Yes
-##    b.) ? Which stylesheet format would you like to use? SCSS   [ http://sass-lang.com   ]
-## 4.) cd ng7
-## 5.) ng serve -o
-## 6.) ng generate component nav
+## 
+ 1.) npm install -g @angular/cli
+ 
+ 2.) ng new ng7-pre
+ 
+ 3.) a.) ? Would you like to add Angular routing? Yes
+ 
+     b.) ? Which stylesheet format would you like to use? SCSS   [ http://sass-lang.com   ]
+     
+ 4.) cd ng7
+ 
+ 5.) ng serve -o
+ 
+ 6.) ng generate component nav
 
-## 7.) ng g c about
+ 7.) ng g c about
 
-## 8.) ng g c contact
+ 8.) ng g c contact
 
-## 9.) ng g c home
+ 9.) ng g c home
 
-## 10.) app.component.html
+ 10.) app.component.html
             `
             <app-nav></app-nav>
                 <section>
@@ -129,10 +136,10 @@ git add . && git commit -a -m "Add your message" && git push origin master
                 }
             }
 ## 15.) /src/app/home/home.component.html
-<h1>Home</h1>
-
-<button (click)="firstClick()">Click me</button>
+`<h1>Home</h1>
+<button (click)="firstClick()">Click me</button>`
 ## 16.) home.component.ts 
+```
 firstClick() {
     console.log('clicked');
   }
@@ -160,7 +167,7 @@ firstClick() {
 (drag)="myMethod()"
 (dragover)="myMethod()"
 (drop)="myMethod()"
-  
+```
 ## 17.) Angular 7 Class & Style Binding
 ````
  home.component.html
@@ -197,11 +204,11 @@ Component's scss file:
 }
 ````
 ## 18.) Angular 7 Services
-`
+```
 ng generate service data
-`
+
 ==================================
-`
+
 /src/app/data.service.ts
 // Other code removed for brevity
 
@@ -213,9 +220,7 @@ export class DataService {
     return console.log('clicked');
   }
 }
-`
 ===================================
-`
 /src/app/home/home.component.ts
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
@@ -237,9 +242,9 @@ export class HomeComponent implements OnInit {
   }
 
 }
-`
+````
 ## 19.) Angular 7 HTTP Client
-`
+`````
 /src/app/app.module.ts 
 
 // Other imports
@@ -252,10 +257,9 @@ imports: [
     HttpClientModule,    // <-- Right here
   ],
   
-  
-`
+
 ===============================================
-`
+
 /src/app/data.service.ts
 import { HttpClient } from '@angular/common/http';  // Import it up her
 @Injectable({
@@ -267,10 +271,10 @@ constructor(private http: HttpClient) { }
   getUsers() {
     return this.http.get('https://reqres.in/api/users')
   }
-`
+
 
 ================================================
-`
+
 home.component.ts
 export class HomeComponent implements OnInit {
 
@@ -288,11 +292,9 @@ export class HomeComponent implements OnInit {
 
 }
 
-`
 
-```
 =================================================
-`
+
 home.component.html 
 <h1>Users</h1>
 
@@ -302,9 +304,9 @@ home.component.html
     <p>{{ user.first_name }} {{ user.last_name }}</p>
   </li>
 </ul>
-`
+
 ==================================================
-`
+
 home.component.scss
 ul {
     list-style-type: none;
