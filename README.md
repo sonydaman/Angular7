@@ -195,7 +195,7 @@ Component's scss file:
 .large {
     font-size: 4em;
 }
-`
+````
 ## 18.) Angular 7 Services
 `
 ng generate service data
