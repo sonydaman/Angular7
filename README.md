@@ -19,7 +19,7 @@ git add . && git commit -a -m "Add your message" && git push origin master
 
 ## Angular7
 
-## For Starting project in angular 7 we need to follows these step 
+## For Starting project in angular 7 we need to do these step 
 ## 
  1.) npm install -g @angular/cli
  
