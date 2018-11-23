@@ -162,10 +162,9 @@ firstClick() {
 (drop)="myMethod()"
   
 ## 17.) Angular 7 Class & Style Binding
-`
-home.component.html
+````
+ home.component.html
 <h1 [class.gray]="h1Style">Home</h1>
-
 <h1 [ngClass]="{ 'gray': h1Style, 'large': !h1Style}">Home</h1>
 
 <h1 [style.color]="h1Style ? 'gray': 'black'">Home</h1>
