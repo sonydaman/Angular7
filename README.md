@@ -4,6 +4,7 @@
     git clone 
     npm i
     npm i node-sass
+    ng serve -o
     ng serve --port 8080 --host 0.0.0.0  --disableHostCheck true
 `
 ## FOR PUSHING : 
