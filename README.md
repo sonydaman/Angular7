@@ -105,7 +105,117 @@ For Starting project in angular 7 we need to follows these step
                     }
                 }
             }
+15.) \src\app\app.module.ts
+        `
+        import { HomeComponent } from './home/home.component';
+        import { AboutComponent } from './about/about.component';
+        import { ContactComponent } from './contact/contact.component';
 
+        const routes: Routes = [
+        { path: '', component: HomeComponent },
+        { path: 'about', component: AboutComponent },
+        { path: 'contact', component: ContactComponent },
+        ];
+        `
+16.) /src/app/home/home.component.html
+    `
+    <h1>Home</h1>
+    <button (click)="firstClick()">Click me</button>
+    `
+17.) home.component.ts
+    `
+    firstClick() {
+        console.log('clicked');
+    }
+    `
+18.) event handeler
+    `
+    (focus)="myMethod()"
+    (blur)="myMethod()" 
+    (submit)="myMethod()"  
+    (scroll)="myMethod()"
+
+    (cut)="myMethod()"
+    (copy)="myMethod()"
+    (paste)="myMethod()"
+
+    (keydown)="myMethod()"
+    (keypress)="myMethod()"
+    (keyup)="myMethod()"
+
+    (mouseenter)="myMethod()"
+    (mousedown)="myMethod()"
+    (mouseup)="myMethod()"
+
+    (click)="myMethod()"
+    (dblclick)="myMethod()"
+
+    (drag)="myMethod()"
+    (dragover)="myMethod()"
+    (drop)="myMethod()"
+    `
+19.) home.component.html
+    <h1 [class.gray]="h1Style">Home</h1>
+20.) home.component.ts
+    h1Style: boolean = false;
+    firstClick() {
+        this.h1Style = true;
+    }
+21.) home.component.scss
+    .gray {
+    color: gray;
+    }
+22.) home.component.html
+    <h1 [ngClass]="{
+        'gray': h1Style,
+        'large': !h1Style
+        }">Home</h1>
+23.) home.component.scss
+    .large {
+        font-size: 4em;
+    }
+24.) home.component.html
+    <h1 [style.color]="h1Style ? 'gray': 'black'">Home</h1>
+25.) home.component.html
+    <h1 [ngStyle]="{
+                'color': h1Style ? 'gray' : 'black',
+                'font-size': !h1Style ? '1em' : '4em'
+                }">Home</h1>
+26.) ng generate service data
+27.)  /src/app/data.service.ts
+    // Other code removed for brevity
+    export class DataService {
+
+        constructor() { }
+
+        firstClick() {
+            return console.log('clicked');
+        }
+    }
+28.)  /src/app/home/home.component.ts
+    import { DataService } from '../data.service';
+    constructor(private data: DataService) { }
+    firstClick() {
+        this.data.firstClick();
+    }
+29.) /src/app/app.module.ts
+    import { HttpClientModule } from '@angular/common/http';
+30.)  /src/app/data.service.ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';  // Import it up here
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  constructor(private http: HttpClient) { }
+
+  getUsers() {
+    return this.http.get('https://reqres.in/api/users')
+  }
+}
+31.) reqres.in 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
 
@@ -132,3 +242,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://coursetro.com/posts/code/171/Angular-7-Tutorial---Learn-Angular-7-by-Example
