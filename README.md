@@ -1,24 +1,29 @@
-# Angular7
+## Angular7
 
-For Starting project in angular 7 we need to follows these step 
-1.) npm install -g @angular/cli
-2.) ng new ng7-pre
-3.) a.) ? Would you like to add Angular routing? Yes
-    b.) ? Which stylesheet format would you like to use? SCSS   [ http://sass-lang.com   ]
-4.) cd ng7
-5.) ng serve -o
-6.) ng generate component nav
-7.) ng g c about
-8.) ng g c contact
-9.) ng g c home
-10.) app.component.html
+## For Starting project in angular 7 we need to follows these step 
+## 1.) npm install -g @angular/cli
+## 2.) ng new ng7-pre
+## 3.) a.) ? Would you like to add Angular routing? Yes
+##    b.) ? Which stylesheet format would you like to use? SCSS   [ http://sass-lang.com   ]
+## 4.) cd ng7
+## 5.) ng serve -o
+## 6.) ng generate component nav
+
+## 7.) ng g c about
+
+## 8.) ng g c contact
+
+## 9.) ng g c home
+
+## 10.) app.component.html
             `
             <app-nav></app-nav>
                 <section>
                 <router-outlet></router-outlet>
             </section>
             `
-11.) /src/app/nav/nav.component.ts
+
+## 11.) /src/app/nav/nav.component.ts
             `<header>
             <div class="container">
                 <a routerLink="/" class="logo">apptitle</a>
@@ -33,12 +38,14 @@ For Starting project in angular 7 we need to follows these step
             </div>
             </header>
             `
-12.) nav.component.ts
+
+## 12.) nav.component.ts
             `appTitle: string = 'myapp';
             // OR (either will work)
             appTitle = 'myapp';
             `
-13.) /src/styles.scss 
+
+## 13.) /src/styles.scss 
             `
             @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
@@ -74,7 +81,8 @@ For Starting project in angular 7 we need to follows these step
                 padding: 2em;
             }
             `
-14.) nav/component.scss
+
+## 14.) nav/component.scss
             header {
                 background: #7700FF;
 
