@@ -493,4 +493,25 @@ File : contact.component.html
   ```
   To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =========================================================================
+## Adding Server side 
+1.) npm install --save @angular/platform-server @nguniversal/express-engine reflect-metadata cpy-cli
+
+2.) ./src/app/app.server.module.ts  (https://github.com/sonydaman/Angular7/blob/server/src/app.server.module.ts)
+
+3.) ./src/main.server.ts (https://github.com/sonydaman/Angular7/blob/server/src/main.server.ts)
+
+4.) ./src/tsconfig.server.json  (https://github.com/sonydaman/Angular7/blob/server/src/tsconfig.server.json)
+
+5.) ./server.js (https://github.com/sonydaman/Angular7/blob/server/server.js)
+
+6.) ./.angular.cli.json (https://github.com/sonydaman/Angular7/blob/server/.angular.cli.json)
+
+7.) ./package.json
+`
+"scripts": {
+"build:universal": "ng build --prod && ng build --prod --app 1 --output-hashing=false && cpy ./server.js ./dist",
+"serve:universal": "npm run build:universal && cd dist && node server"
+}
+`
+
 ## END OF ANGULAR 7

@@ -19,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'universal-cli' }),
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
