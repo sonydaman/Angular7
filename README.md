@@ -352,3 +352,144 @@ ul {
 `
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`````
+##20.) Angular 7 Forms
+==========================================================================
+File : app.module.ts
+```
+// other imports
+import { ReactiveFormsModule } from '@angular/forms';
+
+// other code
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule  // <- Add here
+  ],
+ ```
+  =====================
+  File : contact.component.ts 
+  ```
+  import { Component, OnInit } from '@angular/core';
+  import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-contact',
+  templateUrl: './contact.component.html',
+  styleUrls: ['./contact.component.scss']
+})
+export class ContactComponent implements OnInit {
+
+  messageForm: FormGroup;
+  submitted = false;
+  success = false;
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.messageForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.messageForm.invalid) {
+        return;
+    }
+
+    this.success = true;
+}
+
+}
+```
+====================================================================
+File : contact.component.html
+```
+<h1>Contact us</h1>
+
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+    <h5 *ngIf="success">Your form is valid!</h5>
+
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+      <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+        <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+      </div>
+    </label>
+  
+    <label>
+      Message:
+      <textarea formControlName="message"></textarea>
+      <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+        <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+      </div>
+    </label>
+
+    <input type="submit" value="Send message" class="cta">
+  
+  </form>
+
+  <div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ messageForm.controls.name.value }}</span>
+
+    <strong>Message:</strong> 
+    <span>{{ messageForm.controls.message.value }}</span>
+  </div>
+  
+ ```
+ ==================================================================
+  File : contact.component.scss
+  ```
+  label {
+    display: block;
+    
+    input, textarea {
+        display: block;
+        width: 50%;
+        margin-bottom: 20px;
+        padding: 1em;
+    }
+
+    .error {
+        margin-top: -20px;
+        background: yellow;
+        padding: .5em;
+        display: inline-block;
+        font-size: .9em;
+        margin-bottom: 20px;
+    }
+}
+
+.cta {
+    background: #7700FF;
+    border: none;
+    color: white;
+
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+}
+
+.results {
+    margin-top: 50px;
+
+    strong {
+        display: block;
+    }
+    span {
+        margin-bottom: 20px;
+        display: block;
+    }
+}
+  ```
+=========================================================================
+## END OF ANGULAR 7
