@@ -351,7 +351,7 @@ ul {
 }
 `
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
 `````
 ##20.) Angular 7 Forms
 ==========================================================================
@@ -491,5 +491,6 @@ File : contact.component.html
     }
 }
   ```
+  To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =========================================================================
 ## END OF ANGULAR 7
