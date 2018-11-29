@@ -495,11 +495,11 @@ File : contact.component.html
  21. Server Side Rendering
     Step 1 : ng add @nguniversal/express-engine --clientProject ng7-pre
 
-    Step 2 : npm u
+    Step 2 : npm up
     
     Step 3 : npm run build:ssr
 
-    Step 4 : npm run sever:ssr
+    Step 4 : npm run serve:ssr
 
   To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 =========================================================================
