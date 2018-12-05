@@ -1,5 +1,6 @@
 header {
             background: #7700FF;
+            // background: #ffffff;
 
             .logo {
                 font-weight: bold;
@@ -19,9 +20,11 @@ header {
                             padding: 1.5em;
                             text-transform: uppercase;
                             font-size: .8em;
-
+                            color: #000000;
                             &:hover {
                                 background: #8E2BFF;
+                                // background: #000000;
+                                color: #ffffff;
                             }
                         }
                     }

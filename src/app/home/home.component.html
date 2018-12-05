@@ -8,7 +8,7 @@
 <h1 [ngStyle]="{'color': h1Style ? 'gray' : 'black','font-size': !h1Style ? '1em' : '4em'}">Home</h1>
 
 <h1>Users</h1>
-
+<app-articles ></app-articles>
 <ul *ngIf="users">
   <li *ngFor="let user of users.data">
     <img [src]="user.avatar">
