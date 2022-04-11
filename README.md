@@ -1,7 +1,7 @@
 ## FOR INSTALLING :
 ## 
 `
-    git clone &&
+    git clone https://github.com/sonydaman/Angular7.git &&
     npm i &&
     npm i node-sass &&
     ng serve --port 8080 --host 0.0.0.0  --disableHostCheck true
