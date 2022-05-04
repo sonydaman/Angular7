@@ -13,6 +13,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -32,6 +33,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
