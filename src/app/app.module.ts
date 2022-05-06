@@ -16,7 +16,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { FormsModule } from '@angular/forms';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,6 +38,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
