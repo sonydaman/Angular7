@@ -7,7 +7,7 @@ import { RecipeService } from '../recipe.service';
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.scss']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit{
   recipes: Recipe[];
  
  constructor(private recipeService: RecipeService,
@@ -24,7 +24,7 @@ export class RecipeListComponent implements OnInit {
     );
     this.recipes = this.recipeService.getRecipes();
   }
-  onNewRecipe(){
+  onNewRecipe() {
      this.router.navigate(['new'], {relativeTo: this.route});
   }
  
