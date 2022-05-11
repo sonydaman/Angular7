@@ -11,7 +11,14 @@ import { Router } from '@angular/router';
 export class RecipeEditComponent implements OnInit {
 id: number;
 editMode = false;
-recipeForm: FormGroup;
+recipeForm = new FormGroup({
+  name: new FormControl(''),
+  imagePath: new FormControl(''),
+  description: new FormControl(''),
+  amount: new FormControl(''),
+  // ingredient: new FormControl(''),
+  ingredients: new FormArray([]),
+});
   constructor(private route: ActivatedRoute,
     private recipeService: RecipeService,
     private router: Router) {
@@ -65,11 +72,12 @@ this.router.navigate(['../'], {relativeTo: this.route});
     let recipeDescription = '';
     let recipeIngredients = new FormArray([]);
     if (this.editMode) {
-      const recipe = this.recipeService.getRecipe(this.id);
-      recipeName = recipe.name;
-      recipeImagePath = recipe.imagePath;
-      recipeDescription = recipe.description;
-if (recipe['ingredients']) {
+      const recipe :any = this.recipeService.getRecipe(this.id);
+      console.log(recipe)
+      recipeName = recipe?.name;
+      recipeImagePath = recipe?.imagePath;
+      recipeDescription = recipe?.description;
+if (recipe?.ingredients) {
   for (let ingredient of recipe.ingredients){
     recipeIngredients.push(
       new FormGroup({
