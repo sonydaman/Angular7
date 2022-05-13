@@ -11,4 +11,9 @@ export class DataStorageService {
             console.log(Response);
         });
     }
+    fetchRecipes(){
+        this.http.get('https://my-course-recipe-d06f8-default-rtdb.firebaseio.com/recipes.json').subscribe(recipes => {
+            console.log(recipes);
+        });
+    }
 }
