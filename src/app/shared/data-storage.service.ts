@@ -17,14 +17,10 @@ export class DataStorageService {
         });
     }
     fetchRecipes(){
-       return this.authService.user.pipe(take(1),
-        exhaustMap((user:any) => {
+      
             return this.http.get<Recipe[]>('https://my-course-recipe-d06f8-default-rtdb.firebaseio.com/recipes.json',
-            {
-                params: new HttpParams().set('auth',user.token)
-            }
-            );
-        }),
+            )
+        .pipe(
         map(recipes =>{
             return recipes.map(recipes => {
                 return {...recipes, ingredients: recipes.ingredients ? recipes.ingredients: []
