@@ -3,6 +3,7 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RecipeService } from '../recipe.service';
 import { Router } from '@angular/router';
+import { Recipe } from '../recipe.model';
 @Component({
   selector: 'app-recipe-edit',
   templateUrl: './recipe-edit.component.html',
@@ -19,6 +20,9 @@ recipeForm = new FormGroup({
   // ingredient: new FormControl(''),
   ingredients: new FormArray([]),
 });
+get ingredientsControls () {
+  return (this.recipeForm.get('ingredients') as FormArray).controls;
+}
   constructor(private route: ActivatedRoute,
     private recipeService: RecipeService,
     private router: Router) {
@@ -39,11 +43,11 @@ recipeForm = new FormGroup({
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
     onSubmit() {
-      // const newRecipe = new Recipe(
-      //   this.recipeForm.value['name'],
-      //   this.recipeForm.value['description'],
-      //   this.recipeForm.value['imagePath'],
-      //   this.recipeForm.value['ingredients']);
+      const newRecipe = new Recipe(
+        this.recipeForm.value['name'],
+        this.recipeForm.value['description'],
+        this.recipeForm.value['imagePath'],
+        this.recipeForm.value['ingredients']);
       if (this.editMode){
         this.recipeService.updateRecipe(this.id, this.recipeForm.value);
       } else{
